@@ -1,5 +1,4 @@
 import { Handler } from '@netlify/functions';
-import { createClient } from '@supabase/supabase-js';
 
 /**
  * Funcion Serverless: Envio de notificaciones institucionales seguras
@@ -38,7 +37,7 @@ export const handler: Handler = async (event) => {
         institutionId,
         eventType,
         recipientsCount: Array.isArray(recipientUserIds) ? recipientUserIds.length : 0,
-        sanitizedPreview: `Notificacion institucional (${eventType}) para ${courseLabel} - ${subjectLabel}. Acceso seguro: ${safeLink}`
+        sanitizedPreview: `Notificacion institucional (${eventType}) para ${courseLabel} ${subjectLabel}. Acceso seguro: ${safeLink}`
       })
     };
   } catch (err) {
